@@ -1,4 +1,5 @@
 -- GameSense CS:GO Legacy 2015/2016 Scaleform HUD
+-- Team-counter measurements and avatar assets ported from abandonedpools/scaleform.
 -- Standalone port of inspoo/scaleform.cpp and inspoo/files/*.js.
 local enabled=ui.new_checkbox("MISC","Miscellaneous","Legacy Scaleform HUD")
 local COLORS={[0]="#e8e8e8",[1]="#ffffff",[2]="#96c8ff",[3]="#356eff",[4]="#c864ff",[5]="#ff2924",[6]="#ff7124",[7]="#fff724",[8]="#3eff24",[9]="#24ff90",[10]="#ff7999",[11]="#d0d198"}
@@ -19,7 +20,7 @@ var hudHa = contextPanel.FindChildTraverse('HudHealthArmor');
 hudHa.FindChildTraverse('HudHealthBG').style.backgroundColor = '#00000000';
 hudHa.FindChildTraverse('HudArmorBG').style.backgroundColor = '#00000000';
 /* <--------> */
-for (var hud_container of hudHa.FindChildrenWithClassTraverse('hud-HA-icon-container')) {
+var __list_1 = hudHa.FindChildrenWithClassTraverse('hud-HA-icon-container'); for (var __i_1 = 0; __i_1 < __list_1.length; __i_1++) { var hud_container = __list_1[__i_1];
     hud_container.style.x = '10px';
     hud_container.style.y = '3px';
     hud_container.style.width = '30px';
@@ -27,7 +28,7 @@ for (var hud_container of hudHa.FindChildrenWithClassTraverse('hud-HA-icon-conta
     hud_container.style.opacity = '1.0';
     hud_container.style.marginTop = '-1px';
 }
-for (var hudHaArmor of hudHa.FindChildrenWithClassTraverse('hud-HA-armor1')) {
+var __list_2 = hudHa.FindChildrenWithClassTraverse('hud-HA-armor1'); for (var __i_2 = 0; __i_2 < __list_2.length; __i_2++) { var hudHaArmor = __list_2[__i_2];
     hudHaArmor.style.x = '38px';
     hudHaArmor.style.y = '3px';
     hudHaArmor.style.width = '65px';
@@ -40,7 +41,7 @@ for (var hudHaArmor of hudHa.FindChildrenWithClassTraverse('hud-HA-armor1')) {
     hudHaArmor.style.textShadow = '0px 0px 3px 0.0 #000000DD';
     hudHaArmor.style.marginLeft = '5px';
 }
-for (var hudHaHealth of hudHa.FindChildrenWithClassTraverse('hud-HA-health1')) {
+var __list_3 = hudHa.FindChildrenWithClassTraverse('hud-HA-health1'); for (var __i_3 = 0; __i_3 < __list_3.length; __i_3++) { var hudHaHealth = __list_3[__i_3];
     hudHaHealth.style.x = '38px';
     hudHaHealth.style.y = '3px';
     hudHaHealth.style.width = '65px';
@@ -53,18 +54,18 @@ for (var hudHaHealth of hudHa.FindChildrenWithClassTraverse('hud-HA-health1')) {
     hudHaHealth.style.textShadow = '0px 0px 3px 0.0 #000000DD';
     hudHaHealth.style.marginLeft = '5px';
 }
-for (var hudHaText of hudHa.FindChildrenWithClassTraverse('hud-HA-text')) {
+var __list_4 = hudHa.FindChildrenWithClassTraverse('hud-HA-text'); for (var __i_4 = 0; __i_4 < __list_4.length; __i_4++) { var hudHaText = __list_4[__i_4];
     hudHaText.style.x = '42px';
     hudHaText.style.y = '4px';
     hudHaText.style.S2MixBlendMode = 'SRGBadditive';
     hudHaText.style.transform = 'scaleY(1.05)';
 }
-for (var hudHaBar of hudHa.FindChildrenWithClassTraverse('hud-HA-bar')) {
+var __list_5 = hudHa.FindChildrenWithClassTraverse('hud-HA-bar'); for (var __i_5 = 0; __i_5 < __list_5.length; __i_5++) { var hudHaBar = __list_5[__i_5];
     hudHaBar.style.x = '108px';
     hudHaBar.style.y = '34px';
     hudHaBar.style.backgroundColor = '#03030399';
 }
-for (var hudHaGeneric of hudHa.FindChildrenWithClassTraverse('hud-HA')) {
+var __list_6 = hudHa.FindChildrenWithClassTraverse('hud-HA'); for (var __i_6 = 0; __i_6 < __list_6.length; __i_6++) { var hudHaGeneric = __list_6[__i_6];
     hudHaGeneric.style.width = '465px';
     hudHaGeneric.style.height = '55px';
     hudHaGeneric.style.verticalAlign = 'bottom';
@@ -74,23 +75,23 @@ for (var hudHaGeneric of hudHa.FindChildrenWithClassTraverse('hud-HA')) {
     hudHaGeneric.style.transitionDuration = '0.3s';
     hudHaGeneric.style.marginLeft = '0px';
     if (hudHaGeneric.BHasClass('hud-HA--active')) {
-        for (var hudHaGeneric_active of hudHa.FindChildrenWithClassTraverse('hud-HA--active')) {
+        var __list_7 = hudHa.FindChildrenWithClassTraverse('hud-HA--active'); for (var __i_7 = 0; __i_7 < __list_7.length; __i_7++) { var hudHaGeneric_active = __list_7[__i_7];
             hudHaGeneric_active.style.opacity = '1.0';
         }
     }
 }
-for (var survival of hudHa.FindChildrenWithClassTraverse('survival')) {
-    for (var inner of survival.FindChildrenWithClassTraverse('hud-HA')) {
+var __list_8 = hudHa.FindChildrenWithClassTraverse('survival'); for (var __i_8 = 0; __i_8 < __list_8.length; __i_8++) { var survival = __list_8[__i_8];
+    var __list_9 = survival.FindChildrenWithClassTraverse('hud-HA'); for (var __i_9 = 0; __i_9 < __list_9.length; __i_9++) { var inner = __list_9[__i_9];
         inner.style.width = '550px';
     }
 }
-for (var hudHaBg of hudHa.FindChildrenWithClassTraverse('hud-HA-bg')) {
+var __list_10 = hudHa.FindChildrenWithClassTraverse('hud-HA-bg'); for (var __i_10 = 0; __i_10 < __list_10.length; __i_10++) { var hudHaBg = __list_10[__i_10];
     hudHaBg.style.flowChildren = 'right';
     hudHaBg.style.width = '100%';
     hudHaBg.style.height = '100%';
     hudHaBg.style.opacity = '1.0';
 }
-for (var hudHaBgH of hudHa.FindChildrenWithClassTraverse('hud-HA-bg-h')) {
+var __list_11 = hudHa.FindChildrenWithClassTraverse('hud-HA-bg-h'); for (var __i_11 = 0; __i_11 < __list_11.length; __i_11++) { var hudHaBgH = __list_11[__i_11];
     hudHaBgH.style.backgroundImage = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/hp.png")'; // HP.png
     hudHaBgH.style.backgroundSize = '107% 100%';
     hudHaBgH.style.backgroundImgOpacity = '1';
@@ -99,7 +100,7 @@ for (var hudHaBgH of hudHa.FindChildrenWithClassTraverse('hud-HA-bg-h')) {
     hudHaBgH.style.horizontalAlign = 'left';
 }
 
-for (var hudHaBgA of hudHa.FindChildrenWithClassTraverse('hud-HA-bg-a')) {
+var __list_12 = hudHa.FindChildrenWithClassTraverse('hud-HA-bg-a'); for (var __i_12 = 0; __i_12 < __list_12.length; __i_12++) { var hudHaBgA = __list_12[__i_12];
     hudHaBgA.style.backgroundImage = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/armor.png")'; // Armor.png
     hudHaBgA.style.backgroundSize = '100% 100%';
     hudHaBgA.style.backgroundImgOpacity = '1.0';
@@ -110,20 +111,20 @@ for (var hudHaBgA of hudHa.FindChildrenWithClassTraverse('hud-HA-bg-a')) {
     hudHaBgA.style.overflow = 'noclip';
 }
 
-for (var onDmg of hudHa.FindChildrenWithClassTraverse('hud-HA--on-damage')) {
-    for (var dmg of onDmg.FindChildrenWithClassTraverse('hud-HA-text')) {
+var __list_13 = hudHa.FindChildrenWithClassTraverse('hud-HA--on-damage'); for (var __i_13 = 0; __i_13 < __list_13.length; __i_13++) { var onDmg = __list_13[__i_13];
+    var __list_14 = onDmg.FindChildrenWithClassTraverse('hud-HA-text'); for (var __i_14 = 0; __i_14 < __list_14.length; __i_14++) { var dmg = __list_14[__i_14];
         dmg.style.washColor = '#ff0000';
     }
 }
 
-for (var oncrit of hudHa.FindChildrenWithClassTraverse('hud-HA--critical')) {
-    for (var hudHaBg of oncrit.FindChildTraverse('HudHealthArmor').FindChildrenWithClassTraverse('hud-HA-bg-h')) {
+var __list_15 = hudHa.FindChildrenWithClassTraverse('hud-HA--critical'); for (var __i_15 = 0; __i_15 < __list_15.length; __i_15++) { var oncrit = __list_15[__i_15];
+    var __list_16 = oncrit.FindChildTraverse('HudHealthArmor').FindChildrenWithClassTraverse('hud-HA-bg-h'); for (var __i_16 = 0; __i_16 < __list_16.length; __i_16++) { var hudHaBg = __list_16[__i_16];
         hudHaBg.style.backgroundImage = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/hpred.png")';
         hudHaBg.style.backgroundImgOpacity = '1';
     }
 }
 
-for (var health of contextPanel.FindChildTraverse('HudHealthArmor').FindChildrenWithClassTraverse('hud-HA-icon--health')) {
+var __list_17 = contextPanel.FindChildTraverse('HudHealthArmor').FindChildrenWithClassTraverse('hud-HA-icon--health'); for (var __i_17 = 0; __i_17 < __list_17.length; __i_17++) { var health = __list_17[__i_17];
 
     health.SetImage('https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/healtharmor/hp.png');
 	health.style.width = '55px';
@@ -133,7 +134,7 @@ for (var health of contextPanel.FindChildTraverse('HudHealthArmor').FindChildren
     health.style.backgroundColor = '#00000000';
 }
 
-for (var shield of contextPanel.FindChildTraverse('HudHealthArmor').FindChildrenWithClassTraverse('hud-HA-icon--helmet')) {
+var __list_18 = contextPanel.FindChildTraverse('HudHealthArmor').FindChildrenWithClassTraverse('hud-HA-icon--helmet'); for (var __i_18 = 0; __i_18 < __list_18.length; __i_18++) { var shield = __list_18[__i_18];
     shield.SetImage('https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/healtharmor/helmet.png');
 	shield.style.width = '55px';
 	shield.style.height = '55px';
@@ -142,7 +143,7 @@ for (var shield of contextPanel.FindChildTraverse('HudHealthArmor').FindChildren
     shield.style.backgroundColor = '#00000000';
 }
 
-for (var shield of contextPanel.FindChildTraverse('HudHealthArmor').FindChildrenWithClassTraverse('hud-HA-icon--armor')) {
+var __list_19 = contextPanel.FindChildTraverse('HudHealthArmor').FindChildrenWithClassTraverse('hud-HA-icon--armor'); for (var __i_19 = 0; __i_19 < __list_19.length; __i_19++) { var shield = __list_19[__i_19];
     shield.SetImage('https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/healtharmor/armor.png');
 	shield.style.width = '55px';
 	shield.style.height = '55px';
@@ -189,7 +190,7 @@ for (var i = 0; i < 8; i++) {
     }
 }]=]
 local deathnotices_js=[=[var contextPanel = $.GetContextPanel();
-for (var dnBackground of contextPanel.FindChildrenWithClassTraverse('DeathNoticeBGBorder')) {
+var __list_20 = contextPanel.FindChildrenWithClassTraverse('DeathNoticeBGBorder'); for (var __i_20 = 0; __i_20 < __list_20.length; __i_20++) { var dnBackground = __list_20[__i_20];
 
 	dnBackground.style.border = '0px solid #00000000';
 	dnBackground.style.boxShadow = 'inset #00000000 0px 0px 0px 0px;';
@@ -200,14 +201,14 @@ for (var dnBackground of contextPanel.FindChildrenWithClassTraverse('DeathNotice
 	dnBackground.style.height = '36px';
 }
 
-for (var dnBackgroundg of contextPanel.FindChildrenWithClassTraverse('DeathNoticeBG')) {
+var __list_21 = contextPanel.FindChildrenWithClassTraverse('DeathNoticeBG'); for (var __i_21 = 0; __i_21 < __list_21.length; __i_21++) { var dnBackgroundg = __list_21[__i_21];
 	dnBackgroundg.style.backgroundImage = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/fade.png")';
 	dnBackgroundg.style.backgroundSize = '100% 100%';
 	dnBackgroundg.style.backgroundColor = '#00000000';
 	dnBackgroundg.style.opacity = '0.7';
 }
 
-for (var dnBackgroundgradient of contextPanel.FindChildrenWithClassTraverse('DeathNoticeBGGradient')) {
+var __list_22 = contextPanel.FindChildrenWithClassTraverse('DeathNoticeBGGradient'); for (var __i_22 = 0; __i_22 < __list_22.length; __i_22++) { var dnBackgroundgradient = __list_22[__i_22];
 	dnBackgroundgradient.style.height = '100%';
 	dnBackgroundgradient.style.width = '100%';
 	dnBackgroundgradient.opacity = '0.76';
@@ -216,7 +217,7 @@ for (var dnBackgroundgradient of contextPanel.FindChildrenWithClassTraverse('Dea
 }
 
 
-for (var dnIcon of contextPanel.FindChildrenWithClassTraverse('DeathNoticeIcon')) {
+var __list_23 = contextPanel.FindChildrenWithClassTraverse('DeathNoticeIcon'); for (var __i_23 = 0; __i_23 < __list_23.length; __i_23++) { var dnIcon = __list_23[__i_23];
 	if (dnIcon.id === "Weapon") {
 		dnIcon.style.height = '24px';
 		dnIcon.style.verticalAlign = 'top';
@@ -233,7 +234,7 @@ for (var dnIcon of contextPanel.FindChildrenWithClassTraverse('DeathNoticeIcon')
 	}
 }
 
-for (var dnT of contextPanel.FindChildrenWithClassTraverse('DeathNoticeTColor')) {
+var __list_24 = contextPanel.FindChildrenWithClassTraverse('DeathNoticeTColor'); for (var __i_24 = 0; __i_24 < __list_24.length; __i_24++) { var dnT = __list_24[__i_24];
 	dnT.style.color = '#f5ca68';
 	dnT.style.textShadow = '0px 0px 0px #00000000';
 	dnT.style.fontFamily = 'Stratum2, "Arial Unicode MS"';
@@ -245,7 +246,7 @@ for (var dnT of contextPanel.FindChildrenWithClassTraverse('DeathNoticeTColor'))
 	dnT.style.transform = 'scaleX(0.99) scaleY(1.03) translateY(1.9px)';
 	dnT.style.S2MixBlendMode = 'SRGBadditive';
 }
-for (var dnCt of contextPanel.FindChildrenWithClassTraverse('DeathNoticeCTColor')) {
+var __list_25 = contextPanel.FindChildrenWithClassTraverse('DeathNoticeCTColor'); for (var __i_25 = 0; __i_25 < __list_25.length; __i_25++) { var dnCt = __list_25[__i_25];
 	dnCt.style.color = '#98abd5';
 	dnCt.style.textShadow = '0px 0px 0px #00000000';
 	dnCt.style.fontFamily = 'Stratum2, "Arial Unicode MS"';
@@ -259,7 +260,7 @@ for (var dnCt of contextPanel.FindChildrenWithClassTraverse('DeathNoticeCTColor'
 }
 
 
-for (var deathnotice of contextPanel.FindChildrenWithClassTraverse('DeathNotice')) {
+var __list_26 = contextPanel.FindChildrenWithClassTraverse('DeathNotice'); for (var __i_26 = 0; __i_26 < __list_26.length; __i_26++) { var deathnotice = __list_26[__i_26];
 	deathnotice.FindChildTraverse('NoScopeIcon').style.visibility = 'collapse';
 	deathnotice.FindChildTraverse('ThroughSmokeIcon').style.visibility = 'collapse';
 	deathnotice.FindChildTraverse('AttackerBlindIcon').style.visibility = 'collapse';
@@ -269,8 +270,8 @@ for (var deathnotice of contextPanel.FindChildrenWithClassTraverse('DeathNotice'
 
 
 	if (deathnotice.BHasClass('DeathNotice_Killer')) {
-		for (var killer of contextPanel.FindChildTraverse('HudDeathNotice').FindChildrenWithClassTraverse('DeathNotice_Killer')) {
-			for (var content of killer.FindChildrenWithClassTraverse('DeathNoticeBG')) {
+		var __list_27 = contextPanel.FindChildTraverse('HudDeathNotice').FindChildrenWithClassTraverse('DeathNotice_Killer'); for (var __i_27 = 0; __i_27 < __list_27.length; __i_27++) { var killer = __list_27[__i_27];
+			var __list_28 = killer.FindChildrenWithClassTraverse('DeathNoticeBG'); for (var __i_28 = 0; __i_28 < __list_28.length; __i_28++) { var content = __list_28[__i_28];
 				content.style.border = '1.5px solid #b3070d;';
 				content.style.borderRadius = '3px';
 				content.style.backgroundColor = 'black';
@@ -279,8 +280,8 @@ for (var deathnotice of contextPanel.FindChildrenWithClassTraverse('DeathNotice'
 		}
 	}
 	if (deathnotice.BHasClass('DeathNotice_Victim')) {
-		for (var victim of contextPanel.FindChildTraverse('HudDeathNotice').FindChildrenWithClassTraverse('DeathNotice_Victim')) {
-			for (var content of victim.FindChildrenWithClassTraverse('DeathNoticeBG')) {
+		var __list_29 = contextPanel.FindChildTraverse('HudDeathNotice').FindChildrenWithClassTraverse('DeathNotice_Victim'); for (var __i_29 = 0; __i_29 < __list_29.length; __i_29++) { var victim = __list_29[__i_29];
+			var __list_30 = victim.FindChildrenWithClassTraverse('DeathNoticeBG'); for (var __i_30 = 0; __i_30 < __list_30.length; __i_30++) { var content = __list_30[__i_30];
 
 				content.style.backgroundColor = '#a81313';
 				content.style.borderRadius = '3px';
@@ -290,154 +291,281 @@ for (var deathnotice of contextPanel.FindChildrenWithClassTraverse('DeathNotice'
 		}
 	}
 }]=]
-local teamcount_avatar_js=[=[var hudTeamCounter = $.GetContextPanel().FindChildTraverse('HudTeamCounter');
-var teamSmallContainerCT = hudTeamCounter ? hudTeamCounter.FindChildTraverse('TeamSmallContainerCT') : null;
-var teamSmallContainerT = hudTeamCounter ? hudTeamCounter.FindChildTraverse('TeamSmallContainerT') : null;
-if (teamSmallContainerCT) { teamSmallContainerCT.style.width='400px'; teamSmallContainerCT.style.marginRight='-2px'; teamSmallContainerCT.style.horizontalAlign='right'; }
-if (teamSmallContainerT) { teamSmallContainerT.style.width='400px'; teamSmallContainerT.style.marginLeft='6px'; teamSmallContainerT.style.horizontalAlign='left'; }
-function applyClass(className, callback) {
+local teamcount_avatar_js=[=[function runner() {
+    var hudTeamCounter = $.GetContextPanel().FindChildTraverse('HudTeamCounter');
     if (!hudTeamCounter) return;
-    var panels = hudTeamCounter.FindChildrenWithClassTraverse(className);
-    for (var i = 0; i < panels.length; i++) callback(panels[i]);
+
+    var isBottom = GameInterfaceAPI.GetSettingString('cl_hud_playercount_pos') === '1';
+    var ctUrl = 'https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/teamcounter/teamcounter_alivebgCT.png';
+    var tUrl = 'https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/teamcounter/teamcounter_alivebgT.png';
+
+    var __list_31 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarL__Default--CT'); for (var __i_31 = 0; __i_31 < __list_31.length; __i_31++) { var avatarBackground = __list_31[__i_31];
+        if (avatarBackground.SetImage) avatarBackground.SetImage(ctUrl);
+        avatarBackground.style.backgroundImage = 'url("' + ctUrl + '")';
+        avatarBackground.style.backgroundSize = '92% 86%';
+        avatarBackground.style.backgroundPosition = '50% 25%';
+        avatarBackground.style.backgroundRepeat = 'no-repeat';
+    }
+    var __list_32 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarL__Default--T'); for (var __i_32 = 0; __i_32 < __list_32.length; __i_32++) { var avatarBackground = __list_32[__i_32];
+        if (avatarBackground.SetImage) avatarBackground.SetImage(tUrl);
+        avatarBackground.style.backgroundImage = 'url("' + tUrl + '")';
+        avatarBackground.style.backgroundSize = '92% 86%';
+        avatarBackground.style.backgroundPosition = '50% 25%';
+        avatarBackground.style.backgroundRepeat = 'no-repeat';
+    }
+    var __list_33 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarL__PlayerColor'); for (var __i_33 = 0; __i_33 < __list_33.length; __i_33++) { var avatarClr = __list_33[__i_33];
+        avatarClr.style.y = '-2px';
+        avatarClr.style.width = '24px';
+        avatarClr.style.height = '12px';
+        avatarClr.style.marginLeft = '0px';
+        avatarClr.style.horizontalAlign = 'center';
+        avatarClr.style.verticalAlign = 'top';
+        avatarClr.style.imgShadow = '0px 0px 1px 1.0 #000000CC';
+    }
+    var __list_34 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarL__Internal'); for (var __i_34 = 0; __i_34 < __list_34.length; __i_34++) { var avatarL = __list_34[__i_34];
+        avatarL.style.height = '59px';
+        avatarL.style.width = '85%';
+        avatarL.style.marginTop = '0px';
+        avatarL.style.horizontalAlign = 'center';
+        avatarL.style.verticalAlign = 'top';
+        avatarL.style.backgroundColor = '#7f7f7f';
+    }
+    var __list_35 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarL_HealthBarBG'); for (var __i_35 = 0; __i_35 < __list_35.length; __i_35++) { var avatarL = __list_35[__i_35];
+        avatarL.style.verticalAlign = 'bottom';
+        avatarL.style.marginBottom = '1.5px';
+        avatarL.style.marginRight = '1.5px';
+        avatarL.style.marginLeft = '1.5px';
+        avatarL.style.height = '4.55px';
+        avatarL.style.backgroundColor = '#00000040';
+        avatarL.style.position = 'absolute';
+    }
+    var __list_36 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarL__ImageBG'); for (var __i_36 = 0; __i_36 < __list_36.length; __i_36++) { var avbg = __list_36[__i_36];
+        avbg.style.width = '85%';
+        avbg.style.height = '58px';
+        avbg.style.marginTop = '0px';
+    }
+    var __list_37 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarL__PlayerImage'); for (var __i_37 = 0; __i_37 < __list_37.length; __i_37++) { var pImg = __list_37[__i_37];
+        pImg.style.marginTop = '0px';
+    }
+    var __list_38 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarL'); for (var __i_38 = 0; __i_38 < __list_38.length; __i_38++) { var avatarL = __list_38[__i_38];
+        avatarL.style.width = '62px';
+        avatarL.style.height = '62px';
+        avatarL.style.verticalAlign = isBottom ? 'bottom' : 'top';
+        avatarL.style.overflow = 'noclip';
+    }
+    var __list_39 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarS'); for (var __i_39 = 0; __i_39 < __list_39.length; __i_39++) { var avatarS = __list_39[__i_39];
+        avatarS.style.width = '42px';
+        avatarS.style.height = '24px';
+        avatarS.style.marginLeft = '1px';
+        avatarS.style.marginRight = '5px';
+        avatarS.style.marginBottom = '1px';
+    }
+    var __list_40 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarS__Internal'); for (var __i_40 = 0; __i_40 < __list_40.length; __i_40++) { var avatarS = __list_40[__i_40];
+        avatarS.style.opacity = '1';
+        avatarS.style.width = '100%';
+        avatarS.style.height = '100%';
+        avatarS.style.backgroundColor = '#7f7f7f';
+        avatarS.style.verticalAlign = 'top';
+        avatarS.style.horizontalAlign = 'center';
+    }
+    var __list_41 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarS__PlayerImage'); for (var __i_41 = 0; __i_41 < __list_41.length; __i_41++) { var avatarS = __list_41[__i_41];
+        avatarS.style.backgroundColor = 'black';
+        avatarS.style.width = '100%';
+        avatarS.style.height = '100%';
+        avatarS.style.verticalAlign = 'middle';
+    }
+    var __list_42 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarS__HealthBar'); for (var __i_42 = 0; __i_42 < __list_42.length; __i_42++) { var avatarS = __list_42[__i_42];
+        avatarS.style.height = '3px';
+        avatarS.style.verticalAlign = 'bottom';
+    }
+    var __list_43 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarS__Default--CT'); for (var __i_43 = 0; __i_43 < __list_43.length; __i_43++) { var avatarS = __list_43[__i_43];
+        if (avatarS.SetImage) avatarS.SetImage(ctUrl);
+        avatarS.style.backgroundImage = 'url("' + ctUrl + '")';
+        avatarS.style.backgroundSize = '92% 86%';
+        avatarS.style.backgroundPosition = '50% 25%';
+        avatarS.style.backgroundRepeat = 'no-repeat';
+        avatarS.style.height = '100%';
+        avatarS.style.marginRight = '0px';
+    }
+    var __list_44 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarS__Default--T'); for (var __i_44 = 0; __i_44 < __list_44.length; __i_44++) { var avatarS = __list_44[__i_44];
+        if (avatarS.SetImage) avatarS.SetImage(tUrl);
+        avatarS.style.backgroundImage = 'url("' + tUrl + '")';
+        avatarS.style.backgroundSize = '92% 86%';
+        avatarS.style.backgroundPosition = '50% 25%';
+        avatarS.style.backgroundRepeat = 'no-repeat';
+        avatarS.style.height = '100%';
+        avatarS.style.marginLeft = '0px';
+    }
+    var __list_45 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarImageT__Color'); for (var __i_45 = 0; __i_45 < __list_45.length; __i_45++) { var internalColor = __list_45[__i_45];
+        internalColor.style.backgroundColor = '#87663e';
+        internalColor.style.border = '2px solid #8a6a41';
+    }
+    var __list_46 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarImageT__InternalColor'); for (var __i_46 = 0; __i_46 < __list_46.length; __i_46++) { var internalColor = __list_46[__i_46];
+        internalColor.style.backgroundColor = '#FFFFFF';
+    }
+    var __list_47 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarImageCT__Color'); for (var __i_47 = 0; __i_47 < __list_47.length; __i_47++) { var internalColor = __list_47[__i_47];
+        internalColor.style.backgroundColor = '#72859d';
+        internalColor.style.border = '2px solid #72859d';
+    }
+    var __list_48 = hudTeamCounter.FindChildrenWithClassTraverse('AvatarImageCT__InternalColor'); for (var __i_48 = 0; __i_48 < __list_48.length; __i_48++) { var internalColor = __list_48[__i_48];
+        internalColor.style.backgroundColor = '#FFFFFF';
+    }
+    var __list_49 = hudTeamCounter.FindChildrenWithClassTraverse('Avatar__PlayerOutline--None'); for (var __i_49 = 0; __i_49 < __list_49.length; __i_49++) { var noOutline = __list_49[__i_49];
+        noOutline.style.border = '0px solid #0000000';
+    }
+    var __list_50 = hudTeamCounter.FindChildrenWithClassTraverse('Avatar__PlayerOutline--White'); for (var __i_50 = 0; __i_50 < __list_50.length; __i_50++) { var avatarOutline = __list_50[__i_50];
+        avatarOutline.style.border = '2px solid white';
+    }
+    var __list_51 = hudTeamCounter.FindChildrenWithClassTraverse('Avatar__PlayerOutline--T'); for (var __i_51 = 0; __i_51 < __list_51.length; __i_51++) { var avatarOutline = __list_51[__i_51];
+        avatarOutline.style.backgroundColor = '#756337';
+        avatarOutline.style.border = '1px solid #87663e';
+    }
+    var __list_52 = hudTeamCounter.FindChildrenWithClassTraverse('Avatar__PlayerOutline--CT'); for (var __i_52 = 0; __i_52 < __list_52.length; __i_52++) { var avatarOutline = __list_52[__i_52];
+        avatarOutline.style.backgroundColor = '#7C858F';
+        avatarOutline.style.border = '1px solid #4F5D6D';
+    }
+    var __list_53 = hudTeamCounter.FindChildrenWithClassTraverse('Avatar__HealthBar--Normal'); for (var __i_53 = 0; __i_53 < __list_53.length; __i_53++) { var av = __list_53[__i_53];
+        av.style.backgroundColor = '#99ae91';
+    }
 }
-applyClass('AvatarL__Default--CT', function(p) { p.style.backgroundSize='92% 86%'; p.style.backgroundPosition='50% 25%'; p.style.backgroundRepeat='no-repeat'; });
-applyClass('AvatarL__Default--T', function(p) { p.style.backgroundSize='92% 86%'; p.style.backgroundPosition='50% 25%'; p.style.backgroundRepeat='no-repeat'; });
-applyClass('AvatarL__PlayerColor', function(p) { p.style.y='-2px'; p.style.width='24px'; p.style.height='12px'; p.style.marginLeft='0px'; p.style.horizontalAlign='center'; p.style.imgShadow='0px 0px 1px 1.0 #000000CC'; });
-applyClass('AvatarL__Internal', function(p) { p.style.height='59px'; p.style.width='85%'; p.style.horizontalAlign='center'; p.style.verticalAlign='top'; p.style.backgroundColor='#7f7f7f'; });
-applyClass('AvatarL_HealthBarBG', function(p) { p.style.verticalAlign='bottom'; p.style.marginBottom='1.5px'; p.style.marginRight='1.5px'; p.style.marginLeft='1.5px'; p.style.height='4.55px'; p.style.backgroundColor='#00000040'; p.style.position='absolute'; });
-applyClass('AvatarL__ImageBG', function(p) { p.style.width='85%'; p.style.height='59px'; });
-applyClass('AvatarL', function(p) { p.style.width='58px'; p.style.height='100px'; p.style.overflow='noclip'; });
-applyClass('AvatarS', function(p) { p.style.width='54px'; });
-applyClass('AvatarS__Internal', function(p) { p.style.opacity='1'; p.style.width='25px'; p.style.height='28.6px'; p.style.backgroundColor='#7f7f7f'; p.style.verticalAlign='top'; });
-applyClass('AvatarS__PlayerImage', function(p) { p.style.backgroundColor='black'; p.style.width='100%'; p.style.height='100%'; p.style.verticalAlign='middle'; });
-applyClass('AvatarS__HealthBar', function(p) { p.style.height='3px'; p.style.verticalAlign='bottom'; });
-applyClass('AvatarS__Default--CT', function(p) { p.style.backgroundSize='100% 180%'; p.style.backgroundPosition='center'; p.style.height='100%'; p.style.marginRight='9px'; });
-applyClass('AvatarS__Default--CT', function(p) { p.style.backgroundImage='url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/teamcounter/teamcounter_alivebgCT.png")'; });
-applyClass('AvatarS__Default--T', function(p) { p.style.backgroundSize='100% 180%'; p.style.backgroundPosition='center'; p.style.height='100%'; p.style.marginLeft='9px'; p.style.backgroundImage='url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/teamcounter/teamcounter_alivebgT.png")'; });
-applyClass('AvatarImageT__Color', function(p) { p.style.backgroundColor='#87663e'; p.style.border='2px solid #8a6a41'; });
-applyClass('AvatarImageT__InternalColor', function(p) { p.style.backgroundColor='#FFFFFF'; });
-applyClass('AvatarImageCT__Color', function(p) { p.style.backgroundColor='#72859d'; p.style.border='2px solid #72859d'; });
-applyClass('AvatarImageCT__InternalColor', function(p) { p.style.backgroundColor='#FFFFFF'; });
-applyClass('Avatar__PlayerOutline--None', function(p) { p.style.border='0px solid #0000000'; });
-applyClass('Avatar__PlayerOutline--White', function(p) { p.style.border='2px solid white'; });
-applyClass('Avatar__PlayerOutline--T', function(p) { p.style.backgroundColor='#756337'; p.style.border='1px solid #87663e'; });
-applyClass('Avatar__PlayerOutline--CT', function(p) { p.style.backgroundColor='#7C858F'; p.style.border='1px solid #4F5D6D'; });
-applyClass('Avatar__HealthBar--Normal', function(p) { p.style.backgroundColor='#99ae91'; });
-applyClass('TeamCounter__AliveCT', function(p) { p.style.width='55px'; p.style.height='55px'; });
-applyClass('TeamCounter__AliveT', function(p) { p.style.width='55px'; p.style.height='55px'; });]=]
-local teamcount_score_js=[=[var contextPanel = $.GetContextPanel();
-// Teamcount (only score style)
-var hudTeamCounter = contextPanel.FindChildTraverse('HudTeamCounter');
-hudTeamCounter.style.height = '100%';
+runner();
+$.Schedule(0.3, runner);]=]
+local teamcount_score_js=[=[function score_runner() {
+    var contextPanel = $.GetContextPanel();
+    var hudTeamCounter = contextPanel.FindChildTraverse('HudTeamCounter');
+    if (!hudTeamCounter) return;
 
-var aliveTextT = hudTeamCounter.FindChildTraverse('AliveTextT');
-var aliveTextCT = hudTeamCounter.FindChildTraverse('AliveTextCT');
+    var isBottom = GameInterfaceAPI.GetSettingString('cl_hud_playercount_pos') === '1';
+    hudTeamCounter.style.height = isBottom ? 'fit-children' : '100%';
+    hudTeamCounter.style.verticalAlign = isBottom ? 'bottom' : 'top';
 
-aliveTextT.style.fontSize = '13px';
-aliveTextCT.style.fontSize = '13px';
+    var aliveTextT = hudTeamCounter.FindChildTraverse('AliveTextT');
+    var aliveTextCT = hudTeamCounter.FindChildTraverse('AliveTextCT');
 
-aliveTextT.style.fontWeight = 'light';
-aliveTextCT.style.fontWeight = 'light';
+    if (aliveTextT && aliveTextCT) {
+        aliveTextT.style.fontSize = '13px';
+        aliveTextCT.style.fontSize = '13px';
+        aliveTextT.style.fontWeight = 'light';
+        aliveTextT.style.fontSize = '13px';
+        aliveTextT.style.color = '#999999';
+        aliveTextT.style.opacity = '0.57';
+        aliveTextCT.style.fontWeight = 'light';
+        aliveTextCT.style.fontSize = '13px';
+        aliveTextCT.style.color = '#999999';
+        aliveTextCT.style.opacity = '0.57';
+        aliveTextCT.style.letterSpacing = '0px';
+        aliveTextT.style.letterSpacing = '0px';
+        aliveTextCT.style.marginBottom = '-2px';
+        aliveTextT.style.marginBottom = '-2px';
+        aliveTextCT.style.marginTop = '-1px';
+        aliveTextT.style.marginTop = '-1px';
+        aliveTextT.style.textShadow = '1px 1px 1px 2.0 #000000';
+        aliveTextCT.style.textShadow = '1px 1px 1px 2.0 #000000';
+        aliveTextT.style.fontFamily = 'Stratum2';
+        aliveTextCT.style.fontFamily = 'Stratum2';
+        aliveTextT.style.color = '#483a2a';
+        aliveTextCT.style.color = '#454b51';
+        aliveTextT.style.opacity = '0.57';
+        aliveTextCT.style.opacity = '0.57';
+        aliveTextCT.style.horizontalAlign = 'center';
+        aliveTextT.style.horizontalAlign = 'center';
+    }
 
-aliveTextCT.style.letterSpacing = '0px';
-aliveTextT.style.letterSpacing = '0px';
+    var winsT = hudTeamCounter.FindChildTraverse('ScoreT');
+    var winsCT = hudTeamCounter.FindChildTraverse('ScoreCT');
+    if (winsT && winsCT) {
+        winsT.style.marginTop = '-1px';
+        winsCT.style.marginTop = '-1px';
+        winsT.style.color = '#B99636';
+        winsCT.style.color = '#6f9ec4';
+        winsT.style.S2MixBlendMode = 'SRGBadditive';
+        winsCT.style.S2MixBlendMode = 'SRGBadditive';
+    }
 
-aliveTextCT.style.marginBottom = '-2px';
-aliveTextT.style.marginBottom = '-2px';
+    var timer = hudTeamCounter.FindChildTraverse('TimerText');
+    if (timer) {
+        timer.style.marginTop = '-3px';
+        timer.style.marginBottom = '4px';
+        timer.style.width = '100%';
+        timer.style.height = '100%';
+        timer.style.opacity = '1';
+        timer.style.fontSize = '28px';
+        timer.style.fontWeight = 'bold';
+        timer.style.verticalAlign = 'center';
+        timer.style.fontFamily = 'Stratum2';
+        timer.style.letterSpacing = '0px';
+        timer.style.S2MixBlendMode = 'SRGBadditive';
+    }
 
-aliveTextCT.style.marginTop = '-1px';
-aliveTextT.style.marginTop = '-1px';
+    var bgCT = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/ct.png")';
+    var bgT = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/t.png")';
 
-aliveTextT.style.textShadow = '1px 1px 1px 2.0 #000000';
-aliveTextCT.style.textShadow = '1px 1px 1px 2.0 #000000';
+    var __list_54 = hudTeamCounter.FindChildrenWithClassTraverse('TeamCounter__AliveT'); for (var __i_54 = 0; __i_54 < __list_54.length; __i_54++) { var tAlive = __list_54[__i_54];
+        tAlive.style.backgroundImage = bgT;
+        tAlive.style.backgroundSize = '100% 100%';
+        tAlive.style.backgroundPosition = 'center';
+        tAlive.style.backgroundRepeat = 'no-repeat';
+        tAlive.style.width = '50px';
+        tAlive.style.height = '53px';
+        tAlive.style.marginLeft = '3px';
+        tAlive.style.marginBottom = '2px';
+    }
+    var __list_55 = hudTeamCounter.FindChildrenWithClassTraverse('TeamCounter__AliveCT'); for (var __i_55 = 0; __i_55 < __list_55.length; __i_55++) { var ctAlive = __list_55[__i_55];
+        ctAlive.style.backgroundImage = bgCT;
+        ctAlive.style.backgroundSize = '100% 100%';
+        ctAlive.style.backgroundPosition = 'center';
+        ctAlive.style.backgroundRepeat = 'no-repeat';
+        ctAlive.style.width = '50px';
+        ctAlive.style.height = '53px';
+        ctAlive.style.marginRight = '3px';
+        ctAlive.style.marginBottom = '2px';
+    }
+    var aliveBackgroundT = hudTeamCounter.FindChildTraverse('AliveBackgroundT');
+    var aliveBackgroundCT = hudTeamCounter.FindChildTraverse('AliveBackgroundCT');
+    if (aliveBackgroundT) {
+        aliveBackgroundT.style.backgroundImage = bgT;
+        aliveBackgroundT.style.backgroundSize = '100% 100%';
+        aliveBackgroundT.style.backgroundPosition = 'center';
+        aliveBackgroundT.style.backgroundRepeat = 'no-repeat';
+        aliveBackgroundT.style.width = '50px';
+        aliveBackgroundT.style.height = '53px';
+        aliveBackgroundT.style.marginLeft = '3px';
+        aliveBackgroundT.style.marginBottom = '2px';
+    }
+    if (aliveBackgroundCT) {
+        aliveBackgroundCT.style.backgroundImage = bgCT;
+        aliveBackgroundCT.style.backgroundSize = '100% 100%';
+        aliveBackgroundCT.style.backgroundPosition = 'center';
+        aliveBackgroundCT.style.backgroundRepeat = 'no-repeat';
+        aliveBackgroundCT.style.width = '50px';
+        aliveBackgroundCT.style.height = '53px';
+        aliveBackgroundCT.style.marginRight = '3px';
+        aliveBackgroundCT.style.marginBottom = '2px';
+    }
 
-aliveTextT.style.fontFamily = 'Stratum2';
-aliveTextCT.style.fontFamily = 'Stratum2';
+    var __list_56 = hudTeamCounter.FindChildrenWithClassTraverse('TeamCounter__AliveCount'); for (var __i_56 = 0; __i_56 < __list_56.length; __i_56++) { var scoreText = __list_56[__i_56];
+        scoreText.style.color = '#ffffff';
+    }
 
-aliveTextT.style.color = '#483a2a';
-aliveTextCT.style.color = '#454b51';
-
-aliveTextT.style.opacity = '0.57';
-aliveTextCT.style.opacity = '0.57';
-
-aliveTextCT.style.horizontalAlign = 'center';
-aliveTextT.style.horizontalAlign = 'center';
-
-var winsT = hudTeamCounter.FindChildTraverse('ScoreT');
-var winsCT = hudTeamCounter.FindChildTraverse('ScoreCT');
-//winsT.style.fontFamily = 'Stratum2 Bold Monodigit';
-//winsCT.style.fontFamily = 'Stratum2 Bold Monodigit';
-
-winsT.style.marginTop = '-1px';
-winsCT.style.marginTop = '-1px';
-
-winsT.style.color = '#B99636';
-winsCT.style.color = '#6f9ec4';
-
-winsT.style.S2MixBlendMode = 'SRGBadditive';
-winsCT.style.S2MixBlendMode = 'SRGBadditive';
-
-var timer = hudTeamCounter.FindChildTraverse('TimerText');
-//timer.style.fontFamily = 'Stratum2 Bold Monodigit';
-//timer.style.marginLeft = '-2px';
-timer.style.marginTop = '-3px';
-timer.style.marginBottom = '4px';
-timer.style.width = '100%';
-timer.style.height = '100%';
-timer.style.opacity = '1';
-timer.style.fontSize = '28px';
-timer.style.fontWeight = 'bold';
-timer.style.verticalAlign = 'center';
-timer.style.fontFamily = 'Stratum2';
-timer.style.letterSpacing = '0px';
-timer.style.S2MixBlendMode = 'SRGBadditive';
-var __list_0 = contextPanel.FindChildTraverse('HudTeamCounter').FindChildrenWithClassTraverse('TeamCounter__AliveT');
-for (var __i_0 = 0; __i_0 < __list_0.length; __i_0++) {
-    var tAlive = __list_0[__i_0];
-    tAlive.style.backgroundImage = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/teamcounter/teamcounter_alivebgT.png")';
+    var __list_57 = contextPanel.FindChildrenWithClassTraverse('AlertText'); for (var __i_57 = 0; __i_57 < __list_57.length; __i_57++) { var sentChat = __list_57[__i_57];
+        sentChat.style.backgroundColor = 'gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), color-stop( 0.7, #00000077 ), to( #00000077 ) )';
+        sentChat.style.textShadow = '1px 1px 2px #00000055';
+        sentChat.style.fontFamily = 'Stratum2';
+        sentChat.style.fontWeight = 'normal';
+        sentChat.style.fontSize = '21.5px';
+        sentChat.style.letterSpacing = '.43px';
+        sentChat.style.paddingLeft = '28px';
+        sentChat.style.paddingBottom = '0px';
+    }
 }
-var __list_1 = contextPanel.FindChildTraverse('HudTeamCounter').FindChildrenWithClassTraverse('TeamCounter__AliveCT');
-for (var __i_1 = 0; __i_1 < __list_1.length; __i_1++) {
-    var ctAlive = __list_1[__i_1];
-    ctAlive.style.backgroundImage = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/teamcounter/teamcounter_alivebgCT.png")';
-}
-var __list_2 = contextPanel.FindChildTraverse('HudTeamCounter').FindChildrenWithClassTraverse('TeamCounter__AliveCount');
-for (var __i_2 = 0; __i_2 < __list_2.length; __i_2++) {
-    var scoreText = __list_2[__i_2];
-    scoreText.style.color = '#ffffff';
-}
-
-var aliveBackgroundCT = hudTeamCounter.FindChildTraverse('AliveBackgroundCT');
-var aliveBackgroundT = hudTeamCounter.FindChildTraverse('AliveBackgroundT');
-if (aliveBackgroundCT) { aliveBackgroundCT.style.width='55px'; aliveBackgroundCT.style.height='55px'; aliveBackgroundCT.style.backgroundImage='url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/teamcounter/teamcounter_alivebgCT.png")'; }
-if (aliveBackgroundT) { aliveBackgroundT.style.width='55px'; aliveBackgroundT.style.height='55px'; aliveBackgroundT.style.backgroundImage='url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/teamcounter/teamcounter_alivebgT.png")'; }
-var smallContainerCT = hudTeamCounter.FindChildTraverse('TeamSmallContainerCT');
-var smallContainerT = hudTeamCounter.FindChildTraverse('TeamSmallContainerT');
-if (smallContainerCT) { smallContainerCT.style.width='400px'; smallContainerCT.style.marginRight='-2px'; smallContainerCT.style.horizontalAlign='right'; }
-if (smallContainerT) { smallContainerT.style.width='400px'; smallContainerT.style.marginLeft='6px'; smallContainerT.style.horizontalAlign='left'; }
-var oldT = hudTeamCounter.FindChildrenWithClassTraverse('AvatarS__Default--T');
-for (var oldTi = 0; oldTi < oldT.length; oldTi++) { oldT[oldTi].style.backgroundImage='url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/teamcounter/teamcounter_alivebgT.png")'; }
-var oldCT = hudTeamCounter.FindChildrenWithClassTraverse('AvatarS__Default--CT');
-for (var oldCTi = 0; oldCTi < oldCT.length; oldCTi++) { oldCT[oldCTi].style.backgroundImage='url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/teamcounter/teamcounter_alivebgCT.png")'; }
-
-var __list_3 = contextPanel.FindChildrenWithClassTraverse('AlertText');
-for (var __i_3 = 0; __i_3 < __list_3.length; __i_3++) {
-    var sentChat = __list_3[__i_3];
-    sentChat.style.backgroundColor = 'gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), color-stop( 0.7, #00000077 ), to( #00000077 ) )';
-    sentChat.style.textShadow = '1px 1px 2px #00000055';
-    sentChat.style.fontFamily = 'Stratum2';
-    sentChat.style.fontWeight = 'normal';
-    sentChat.style.fontSize = '21.5px';
-    sentChat.style.letterSpacing = '.43px';
-    sentChat.style.paddingLeft = '28px';
-    sentChat.style.paddingBottom = '0px';
-}]=]
+score_runner();
+$.Schedule(0.1, score_runner);]=]
 local alerts_js=[=[var contextPanel = $.GetContextPanel();
 var joinPanelCTBG = "https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/fade.png";
 var joinPanelTBG = "https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/fade.png";
 var joinPanelBotBG = "https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/fade.png";
 
-for (var hudHint of contextPanel.FindChildrenWithClassTraverse('hud-hint')) {
+var __list_58 = contextPanel.FindChildrenWithClassTraverse('hud-hint'); for (var __i_58 = 0; __i_58 < __list_58.length; __i_58++) { var hudHint = __list_58[__i_58];
     hudHint.style.backgroundImage = "url('https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/fade.png')";
     hudHint.style.backgroundColor = '#00000000';
     hudHint.style.width = '450px';
@@ -449,7 +577,7 @@ for (var hudHint of contextPanel.FindChildrenWithClassTraverse('hud-hint')) {
 
 }
 
-for (var hudHintIcon of contextPanel.FindChildrenWithClassTraverse('hud-hint_icon')) {
+var __list_59 = contextPanel.FindChildrenWithClassTraverse('hud-hint_icon'); for (var __i_59 = 0; __i_59 < __list_59.length; __i_59++) { var hudHintIcon = __list_59[__i_59];
     hudHintIcon.style.visibility = 'visible';
     hudHintIcon.style.width = '64px';
     hudHintIcon.style.height = '64px';
@@ -458,12 +586,12 @@ for (var hudHintIcon of contextPanel.FindChildrenWithClassTraverse('hud-hint_ico
     hudHintIcon.style.marginLeft = '18px';
     if (hudHintIcon.SetImage) hudHintIcon.SetImage('https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/icons/ui/alert.png');
 }
-for (var hint of contextPanel.FindChildrenWithClassTraverse('hud-hint__icon')) {
+var __list_60 = contextPanel.FindChildrenWithClassTraverse('hud-hint__icon'); for (var __i_60 = 0; __i_60 < __list_60.length; __i_60++) { var hint = __list_60[__i_60];
     hint.style.visibility = 'collapse';
 }
 
 
-for (var hudHintText of contextPanel.FindChildrenWithClassTraverse('hud-hint__text')) {
+var __list_61 = contextPanel.FindChildrenWithClassTraverse('hud-hint__text'); for (var __i_61 = 0; __i_61 < __list_61.length; __i_61++) { var hudHintText = __list_61[__i_61];
     hudHintText.style.width = '75%';
     hudHintText.style.horizontalAlign = 'right';
     hudHintText.style.textAlign = 'left';
@@ -472,7 +600,7 @@ for (var hudHintText of contextPanel.FindChildrenWithClassTraverse('hud-hint__te
 
 }
 
-for (var hudHintPriorityLabel of contextPanel.FindChildrenWithClassTraverse('hud-hint__priority-label')) {
+var __list_62 = contextPanel.FindChildrenWithClassTraverse('hud-hint__priority-label'); for (var __i_62 = 0; __i_62 < __list_62.length; __i_62++) { var hudHintPriorityLabel = __list_62[__i_62];
     hudHintPriorityLabel.style.horizontalAlign = 'left';
     hudHintPriorityLabel.style.x = '0px';
     hudHintPriorityLabel.style.width = '250px';
@@ -487,7 +615,7 @@ for (var hudHintPriorityLabel of contextPanel.FindChildrenWithClassTraverse('hud
 
 }
 
-for (var hudHintLabel of contextPanel.FindChildrenWithClassTraverse('hud-hint__label')) {
+var __list_63 = contextPanel.FindChildrenWithClassTraverse('hud-hint__label'); for (var __i_63 = 0; __i_63 < __list_63.length; __i_63++) { var hudHintLabel = __list_63[__i_63];
     hudHintLabel.style.horizontalAlign = 'left';
     hudHintLabel.style.height = '90px';
     hudHintLabel.style.verticalAlign = 'top';
@@ -496,7 +624,7 @@ for (var hudHintLabel of contextPanel.FindChildrenWithClassTraverse('hud-hint__l
 }
 
 var hudTeamCounter = contextPanel.FindChildTraverse('HudTeamCounter');
-for (var hrTop of hudTeamCounter.FindChildrenWithClassTraverse('hrTop')) {
+var __list_64 = hudTeamCounter.FindChildrenWithClassTraverse('hrTop'); for (var __i_64 = 0; __i_64 < __list_64.length; __i_64++) { var hrTop = __list_64[__i_64];
     hrTop.style.visibility = 'collapse'; // removal
 }
 
@@ -578,15 +706,8 @@ hal.style.width = '883px';
 hal.style.height = '44px';
 hal.style.marginTop = '-40px';
 
-for (var hrbot of hal.FindChildrenWithClassTraverse('hrBot')) { hrbot.style.visibility = 'collapse'; }
-for (var hrtop of hal.FindChildrenWithClassTraverse('hrTop')) { hrtop.style.visibility = 'collapse'; }
-
-var hal = contextPanel.FindChildTraverse('HudAlerts');
-hal.style.width = '883px';
-hal.style.height = '44px';
-hal.style.marginTop = '-40px';
-for (var hrbot of hal.FindChildrenWithClassTraverse('hrBot')) { hrbot.style.visibility = 'collapse'; }
-for (var hrtop of hal.FindChildrenWithClassTraverse('hrTop')) { hrtop.style.visibility = 'collapse'; }
+var __list_65 = hal.FindChildrenWithClassTraverse('hrBot'); for (var __i_65 = 0; __i_65 < __list_65.length; __i_65++) { var hrbot = __list_65[__i_65]; hrbot.style.visibility = 'collapse'; }
+var __list_66 = hal.FindChildrenWithClassTraverse('hrTop'); for (var __i_66 = 0; __i_66 < __list_66.length; __i_66++) { var hrtop = __list_66[__i_66]; hrtop.style.visibility = 'collapse'; }
 
 var alertText = contextPanel.FindChildTraverse('AlertText');
 alertText.style.opacity = '1';
@@ -803,7 +924,7 @@ local function apply()
   run(string.format(radar_format,hex,hex),"radar"); run(health_and_ammo_js,"health_and_ammo")
  end
  if force then run(weapon_panel_js,"weapon_panel"); run(money_js,"money"); run(alerts_js,"alerts") end
- if force or team_dirty then local avatar_js=teamcount_avatar_js:gsub("__BOTTOM_MODE__", playercount_pos == 1 and "true" or "false"); run(teamcount_score_js,"teamcount_score"); run(avatar_js,"teamcount_avatar") end
+ if force or team_dirty then run(teamcount_score_js,"teamcount_score"); run(teamcount_avatar_js,"teamcount_avatar") end
  if force or death_dirty then run(deathnotices_js,"deathnotices") end; if force or win_dirty then run(win_js,"winpanel") end
  local wi=weapon_index(); if force or wi~=last_weapon then run(weapon_select_js,"weapon_select"); last_weapon=wi end
  last_color,last_alpha,last_showcount,last_pos=color,alpha,showcount,playercount_pos; dirty,force,win_dirty,death_dirty,team_dirty=false,false,false,false,false
@@ -816,4 +937,4 @@ client.set_event_callback("item_equip",function() last_weapon=nil; dirty=true en
 client.set_event_callback("shutdown",function() dirty=false; force=false end)
 ui.set_callback(enabled,function() if ui.get(enabled) then last_color,last_alpha,last_weapon,last_showcount,last_pos=nil,nil,nil,nil,nil; mark(true); apply() end end)
 -- Paint only observes cached ConVars; JavaScript runs only when dirty or state changes.
- client.set_event_callback("paint",function() if not ui.get(enabled) then return end; local color=tonumber(cvar.cl_hud_color:get_int()) or 0; local alpha=tonumber(cvar.cl_hud_background_alpha:get_float()) or 0; local showcount=cvar.cl_hud_playercount_showcount and tonumber(cvar.cl_hud_playercount_showcount:get_int()) or 0; local playercount_pos=cvar.cl_hud_playercount_pos and tonumber(cvar.cl_hud_playercount_pos:get_int()) or 0; if color~=last_color or alpha~=last_alpha then dirty=true end; if showcount~=last_showcount or playercount_pos~=last_pos then team_dirty=true; dirty=true end; if dirty then apply() end end)
+client.set_event_callback("paint",function() if not ui.get(enabled) then return end; local color=tonumber(cvar.cl_hud_color:get_int()) or 0; local alpha=tonumber(cvar.cl_hud_background_alpha:get_float()) or 0; local showcount=cvar.cl_hud_playercount_showcount and tonumber(cvar.cl_hud_playercount_showcount:get_int()) or 0; local playercount_pos=cvar.cl_hud_playercount_pos and tonumber(cvar.cl_hud_playercount_pos:get_int()) or 0; if color~=last_color or alpha~=last_alpha then dirty=true end; if showcount~=last_showcount or playercount_pos~=last_pos then team_dirty=true; dirty=true end; if dirty then apply() end end)
