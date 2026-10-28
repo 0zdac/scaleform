@@ -914,6 +914,109 @@ $.Schedule(0.20, white_fade_in);
 $.Schedule(0.30, white_fade_out);
 $.Schedule(1.00, set_funfact);]=]
 
+local abandonedpools_override_js=[=[
+var root = $.GetContextPanel();
+function AP_each(cls, fn) {
+    var list = root.FindChildrenWithClassTraverse(cls);
+    for (var i = 0; i < list.length; i++) fn(list[i]);
+}
+function AP_id(id) { return root.FindChildTraverse(id); }
+function AP_style(p, values) {
+    if (!p) return;
+    for (var k in values) p.style[k] = values[k];
+}
+
+// abandonedpools/scaleform: hudteamcounter.css
+var tc = AP_id('HudTeamCounter');
+if (tc) {
+    AP_each('AvatarL', function(p) { AP_style(p, {width:'62px', height:'62px', marginLeft:'-2.25px', marginRight:'-2.25px', overflow:'noclip'}); });
+    AP_each('AvatarL__ImageBG', function(p) { AP_style(p, {width:'85%', height:'58px'}); });
+    AP_each('AvatarL__Internal', function(p) { AP_style(p, {width:'100%', height:'112%', horizontalAlign:'middle', verticalAlign:'top'}); });
+    AP_each('AvatarS', function(p) { AP_style(p, {width:'42px', height:'24px', marginLeft:'1px', marginRight:'5px', marginBottom:'1px', marginTop:'0px'}); });
+    AP_each('AvatarS__Internal', function(p) { AP_style(p, {width:'100%', height:'100%', horizontalAlign:'center', verticalAlign:'middle', backgroundColor:'#7f7f7f'}); });
+    AP_each('AvatarS__PlayerImage', function(p) { AP_style(p, {width:'100%', height:'100%', verticalAlign:'middle', backgroundColor:'black'}); });
+    AP_each('AvatarS__HealthBar', function(p) { AP_style(p, {height:'3px', verticalAlign:'bottom'}); });
+    AP_each('AvatarS__Default--CT', function(p) { AP_style(p, {backgroundImage:'url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/teamcounter/teamcounter_alivebgCT.png)', backgroundSize:'100% auto', backgroundPosition:'center', backgroundRepeat:'no-repeat', borderTop:'1px solid #7da1bfDD', borderLeft:'1px solid #7da1bfDD', borderRight:'1px solid #7da1bfDD', borderBottom:'4px solid #7da1bfEE'}); });
+    AP_each('AvatarS__Default--T', function(p) { AP_style(p, {backgroundImage:'url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/teamcounter/teamcounter_alivebgT.png)', backgroundSize:'100% auto', backgroundPosition:'center', backgroundRepeat:'no-repeat', borderTop:'1px solid #a19570', borderRight:'1px solid #a19570DD', borderLeft:'1px solid #a19570DD', borderBottom:'4px solid #a19e77EE'}); });
+    AP_each('AvatarL__Default--CT', function(p) { p.style.backgroundImage='url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/teamcounter/teamcounter_alivebgCT.png")'; });
+    AP_each('AvatarL__Default--T', function(p) { p.style.backgroundImage='url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/teamcounter/teamcounter_alivebgT.png")'; });
+    AP_style(AP_id('TeamSmallContainerCT'), {width:'400px', marginRight:'-2px', horizontalAlign:'right'});
+    AP_style(AP_id('TeamSmallContainerT'), {width:'400px', marginLeft:'6px', horizontalAlign:'left'});
+    AP_style(AP_id('AliveBackgroundCT'), {width:'50px', height:'53px', marginRight:'3px', marginBottom:'2px'});
+    AP_style(AP_id('AliveBackgroundT'), {width:'50px', height:'53px', marginLeft:'3px', marginBottom:'2px'});
+    AP_style(AP_id('AliveCountCT'), {fontSize:'40px', fontWeight:'bold', color:'#ffffff', marginTop:'2px', marginBottom:'-11px', horizontalAlign:'center', textAlign:'center'});
+    AP_style(AP_id('AliveCountT'), {fontSize:'40px', fontWeight:'bold', color:'#ffffff', marginTop:'2px', marginBottom:'-11px', horizontalAlign:'center', textAlign:'center'});
+    AP_style(AP_id('AliveTextCT'), {fontSize:'13px', fontWeight:'light', color:'#999999', opacity:'0.57', marginTop:'-1px', letterSpacing:'0px', horizontalAlign:'center'});
+    AP_style(AP_id('AliveTextT'), {fontSize:'13px', fontWeight:'light', color:'#999999', opacity:'0.57', marginTop:'-1px', letterSpacing:'0px', horizontalAlign:'center'});
+    AP_style(AP_id('ScoreCT'), {marginTop:'-1px', color:'#6f9ec4'});
+    AP_style(AP_id('ScoreT'), {marginTop:'-1px', color:'#B99636'});
+    AP_style(AP_id('TimerText'), {marginTop:'-3px', marginBottom:'4px', fontSize:'28px', fontWeight:'bold', fontFamily:'Stratum2', letterSpacing:'0px'});
+}
+
+// abandonedpools/scaleform: hudradar.css
+var radar = AP_id('Radar');
+AP_style(radar, {x:'0px', y:'40px', width:'300px', height:'300px'});
+AP_style(AP_id('Radar__Round'), {width:'260px', height:'260px', horizontalAlign:'center', verticalAlign:'center'});
+AP_style(AP_id('Radar__Round--Inner'), {width:'250px', height:'250px', horizontalAlign:'center', verticalAlign:'center'});
+AP_style(AP_id('Radar__Square'), {width:'280px', height:'280px', horizontalAlign:'left', verticalAlign:'top', marginLeft:'1px'});
+AP_style(AP_id('Radar__Square--Inner'), {width:'270px', height:'270px', horizontalAlign:'center', verticalAlign:'center'});
+AP_style(AP_id('DashboardLabel'), {marginTop:'7px', marginLeft:'18px', fontSize:'26px', fontFamily:'Stratum2', fontWeight:'bold'});
+
+// abandonedpools/scaleform: hudhealtharmor.css
+AP_each('hud-HA', function(p) { AP_style(p, {width:'465px', height:'55px', verticalAlign:'bottom', marginLeft:'0px'}); });
+AP_each('hud-HA-text', function(p) { AP_style(p, {width:'70px'}); });
+AP_each('hud-HA-icon-container', function(p) { AP_style(p, {x:'10px', y:'3px', width:'30px', height:'100%', marginTop:'-1px'}); });
+AP_each('hud-HA-health', function(p) { AP_style(p, {height:'100%', paddingRight:'3px', marginLeft:'3px'}); });
+AP_each('hud-HA-armor', function(p) { AP_style(p, {height:'100%', paddingRight:'10px'}); });
+AP_each('hud-HA-bar', function(p) { AP_style(p, {x:'104px', y:'32px', backgroundColor:'#03030399'}); });
+AP_each('hud-HA-text', function(p) { AP_style(p, {fontFamily:'Stratum2', fontSize:'42px', fontWeight:'bold', letterSpacing:'-1px', horizontalAlign:'center', marginLeft:'5px'}); });
+AP_each('hud-HA-bg-health', function(p) { AP_style(p, {width:'200px', height:'100%', backgroundSize:'107% 100%'}); });
+AP_each('hud-HA-bg-armor', function(p) { AP_style(p, {width:'100%', height:'100%', backgroundSize:'100% 100%'}); });
+
+// abandonedpools/scaleform: hudweaponpanel.css and hudweaponselection.css
+var weaponBottom = AP_id('WeaponPanelBottom');
+AP_style(weaponBottom, {height:'55px'});
+AP_each('WeaponPanel', function(p) { AP_style(p, {fontFamily:'Stratum2', opacity:'1', transitionDuration:'0.25s'}); });
+AP_style(AP_id('AmmoBackground'), {height:'59px', width:'340px', horizontalAlign:'right', verticalAlign:'bottom', backgroundImage:'url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/ammo.png)', backgroundSize:'100% 100%'});
+AP_style(AP_id('WeaponPanelBottomContent'), {height:'100%', flowChildren:'right', horizontalAlign:'right'});
+AP_each('AmmoAnim__BulletIcon--Pos1', function(p) { p.style.marginLeft='4px'; });
+AP_each('AmmoAnim__BulletIcon--Pos2', function(p) { p.style.marginLeft='4px'; });
+AP_each('AmmoAnim__BulletIcon--Pos3', function(p) { p.style.marginLeft='4px'; });
+AP_each('AmmoAnim__BulletIcon--Pos4', function(p) { p.style.marginLeft='4px'; });
+AP_each('AmmoAnim__BulletIcon--Pos5', function(p) { p.style.marginLeft='4px'; });
+
+// abandonedpools/scaleform: hudmoney.css
+AP_each('money', function(p) { AP_style(p, {height:'140px', marginTop:'-52px', marginBottom:'-12px'}); });
+AP_each('money-text-bg', function(p) { AP_style(p, {width:'250px', height:'38px', verticalAlign:'middle', marginLeft:'0px'}); });
+AP_each('money-text', function(p) { AP_style(p, {flowChildren:'right', verticalAlign:'middle', textAlign:'center', marginLeft:'9px'}); });
+AP_each('money-text-label', function(p) { AP_style(p, {fontFamily:'Stratum2 Bold', fontSize:'31px', fontWeight:'bold', marginTop:'2px', marginLeft:'26px', letterSpacing:'-0.4px'}); });
+AP_each('money-text-buy-icon', function(p) { AP_style(p, {width:'28px', height:'28px', marginTop:'5px', marginLeft:'3px'}); });
+
+// abandonedpools/scaleform: huddeathnotice.css
+var dn = AP_id('HudDeathNotice');
+AP_style(dn, {marginTop:'72px', paddingRight:'3px', horizontalAlign:'right'});
+AP_each('DeathNotice', function(p) { AP_style(p, {height:'36px', horizontalAlign:'right', marginBottom:'1px'}); });
+AP_each('DeathNoticeContent', function(p) { AP_style(p, {flowChildren:'right', padding:'6px 10px 3px 10px'}); });
+AP_each('DeathNoticeContentLabel', function(p) { AP_style(p, {fontFamily:'Stratum2', fontSize:'20px', fontWeight:'bold', marginLeft:'2px', marginRight:'2px'}); });
+AP_each('DeathNoticeCTColor', function(p) { p.style.color='#93abd2'; });
+AP_each('DeathNoticeTColor', function(p) { p.style.color='#d7c788'; });
+AP_each('DeathNoticeFadedColor', function(p) { p.style.color='#888888'; });
+AP_style(AP_id('Weapon'), {visibility:'visible', margin:'-2px 4px 0px 4px', maxWidth:'57px'});
+
+// abandonedpools/scaleform: hudwinpanel.css
+var winRoot = AP_id('HudWinPanel');
+AP_each('WinPanelRoot', function(p) { AP_style(p, {width:'818px', height:'500px', horizontalAlign:'center', y:'112px'}); });
+AP_each('WinPanelRow--Main', function(p) { p.style.height='126px'; });
+AP_each('WinPanelRow__Title', function(p) { AP_style(p, {width:'99.75%', marginLeft:'2px', marginRight:'2px', fontSize:'19px'}); });
+AP_each('WinPanelMVP', function(p) { AP_style(p, {fontFamily:'Stratum2'}); });
+
+// abandonedpools/scaleform: hudalerts.css
+var alerts = root.FindChildTraverse('HudAlerts');
+AP_style(alerts, {width:'700px', height:'41px', horizontalAlign:'center'});
+AP_style(AP_id('AlertBg'), {width:'100%', height:'100%'});
+AP_style(AP_id('AlertText'), {width:'100%', textAlign:'center', verticalAlign:'center', marginTop:'1px', fontFamily:'Stratum2 Bold', fontSize:'32px', fontWeight:'bold', letterSpacing:'0px', textTransform:'uppercase'});
+]=]
+
 local function apply()
  if not ui.get(enabled) then return end
  local color=tonumber(cvar.cl_hud_color:get_int()) or 0; local alpha=tonumber(cvar.cl_hud_background_alpha:get_float()) or 0; local showcount=cvar.cl_hud_playercount_showcount and tonumber(cvar.cl_hud_playercount_showcount:get_int()) or 0; local playercount_pos=cvar.cl_hud_playercount_pos and tonumber(cvar.cl_hud_playercount_pos:get_int()) or 0; local changed=force or color~=last_color or alpha~=last_alpha
@@ -925,7 +1028,7 @@ local function apply()
  end
  if force then run(weapon_panel_js,"weapon_panel"); run(money_js,"money"); run(alerts_js,"alerts") end
  if force or team_dirty then run(teamcount_score_js,"teamcount_score"); run(teamcount_avatar_js,"teamcount_avatar") end
- if force or death_dirty then run(deathnotices_js,"deathnotices") end; if force or win_dirty then run(win_js,"winpanel") end
+ if force or death_dirty then run(deathnotices_js,"deathnotices") end; if force or win_dirty then run(win_js,"winpanel") end; if force or team_dirty or death_dirty or win_dirty then run(abandonedpools_override_js,"abandonedpools_override") end
  local wi=weapon_index(); if force or wi~=last_weapon then run(weapon_select_js,"weapon_select"); last_weapon=wi end
  last_color,last_alpha,last_showcount,last_pos=color,alpha,showcount,playercount_pos; dirty,force,win_dirty,death_dirty,team_dirty=false,false,false,false,false
 end
