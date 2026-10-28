@@ -92,7 +92,7 @@ var __list_10 = hudHa.FindChildrenWithClassTraverse('hud-HA-bg'); for (var __i_1
     hudHaBg.style.opacity = '1.0';
 }
 var __list_11 = hudHa.FindChildrenWithClassTraverse('hud-HA-bg-h'); for (var __i_11 = 0; __i_11 < __list_11.length; __i_11++) { var hudHaBgH = __list_11[__i_11];
-    hudHaBgH.style.backgroundImage = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/hp.png")'; // HP.png
+    hudHaBgH.style.backgroundImage = 'url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/hp.png")'; // HP.png
     hudHaBgH.style.backgroundSize = '107% 100%';
     hudHaBgH.style.backgroundImgOpacity = '1';
     hudHaBgH.style.width = '200px';
@@ -101,7 +101,7 @@ var __list_11 = hudHa.FindChildrenWithClassTraverse('hud-HA-bg-h'); for (var __i
 }
 
 var __list_12 = hudHa.FindChildrenWithClassTraverse('hud-HA-bg-a'); for (var __i_12 = 0; __i_12 < __list_12.length; __i_12++) { var hudHaBgA = __list_12[__i_12];
-    hudHaBgA.style.backgroundImage = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/armor.png")'; // Armor.png
+    hudHaBgA.style.backgroundImage = 'url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/armor.png")'; // Armor.png
     hudHaBgA.style.backgroundSize = '100% 100%';
     hudHaBgA.style.backgroundImgOpacity = '1.0';
     hudHaBgA.style.width = '210px';
@@ -119,14 +119,14 @@ var __list_13 = hudHa.FindChildrenWithClassTraverse('hud-HA--on-damage'); for (v
 
 var __list_15 = hudHa.FindChildrenWithClassTraverse('hud-HA--critical'); for (var __i_15 = 0; __i_15 < __list_15.length; __i_15++) { var oncrit = __list_15[__i_15];
     var __list_16 = oncrit.FindChildTraverse('HudHealthArmor').FindChildrenWithClassTraverse('hud-HA-bg-h'); for (var __i_16 = 0; __i_16 < __list_16.length; __i_16++) { var hudHaBg = __list_16[__i_16];
-        hudHaBg.style.backgroundImage = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/hpred.png")';
+        hudHaBg.style.backgroundImage = 'url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/hpred.png")';
         hudHaBg.style.backgroundImgOpacity = '1';
     }
 }
 
 var __list_17 = contextPanel.FindChildTraverse('HudHealthArmor').FindChildrenWithClassTraverse('hud-HA-icon--health'); for (var __i_17 = 0; __i_17 < __list_17.length; __i_17++) { var health = __list_17[__i_17];
 
-    health.SetImage('https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/healtharmor/hp.png');
+    health.SetImage('https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/healtharmor/hp.png');
 	health.style.width = '55px';
 	health.style.height = '55px';
     health.style.marginTop = '0px';
@@ -135,7 +135,7 @@ var __list_17 = contextPanel.FindChildTraverse('HudHealthArmor').FindChildrenWit
 }
 
 var __list_18 = contextPanel.FindChildTraverse('HudHealthArmor').FindChildrenWithClassTraverse('hud-HA-icon--helmet'); for (var __i_18 = 0; __i_18 < __list_18.length; __i_18++) { var shield = __list_18[__i_18];
-    shield.SetImage('https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/healtharmor/helmet.png');
+    shield.SetImage('https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/healtharmor/helmet.png');
 	shield.style.width = '55px';
 	shield.style.height = '55px';
     shield.style.marginTop = '0px';
@@ -144,7 +144,7 @@ var __list_18 = contextPanel.FindChildTraverse('HudHealthArmor').FindChildrenWit
 }
 
 var __list_19 = contextPanel.FindChildTraverse('HudHealthArmor').FindChildrenWithClassTraverse('hud-HA-icon--armor'); for (var __i_19 = 0; __i_19 < __list_19.length; __i_19++) { var shield = __list_19[__i_19];
-    shield.SetImage('https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/healtharmor/armor.png');
+    shield.SetImage('https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/healtharmor/armor.png');
 	shield.style.width = '55px';
 	shield.style.height = '55px';
     shield.style.marginTop = '0px';
@@ -179,7 +179,7 @@ for (var j = 0; j < 9; j++) {
 for (var i = 0; i < 8; i++) {
     if (weapon_selection[i] != undefined && weapon_selection[i].IsSizeValid()) {
         weapon_selection_bg[i].style.backgroundColor = 'transparent';
-        weapon_selection_bg[i].style.backgroundImage = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/weapon.png")';
+        weapon_selection_bg[i].style.backgroundImage = 'url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/weapon.png")';
         weapon_selection_bg[i].style.backgroundSize = '100% 100%';
         weapon_selection_bg[i].style.width = '320px';
         weapon_selection_bg[i].style.horizontalAlign = 'right';
@@ -202,7 +202,7 @@ var __list_20 = contextPanel.FindChildrenWithClassTraverse('DeathNoticeBGBorder'
 }
 
 var __list_21 = contextPanel.FindChildrenWithClassTraverse('DeathNoticeBG'); for (var __i_21 = 0; __i_21 < __list_21.length; __i_21++) { var dnBackgroundg = __list_21[__i_21];
-	dnBackgroundg.style.backgroundImage = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/fade.png")';
+	dnBackgroundg.style.backgroundImage = 'url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/fade.png")';
 	dnBackgroundg.style.backgroundSize = '100% 100%';
 	dnBackgroundg.style.backgroundColor = '#00000000';
 	dnBackgroundg.style.opacity = '0.7';
@@ -497,8 +497,8 @@ local teamcount_score_js=[=[function score_runner() {
         timer.style.S2MixBlendMode = 'SRGBadditive';
     }
 
-    var bgCT = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/ct.png")';
-    var bgT = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/t.png")';
+    var bgCT = 'url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/ct.png")';
+    var bgT = 'url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/t.png")';
 
     var __list_54 = hudTeamCounter.FindChildrenWithClassTraverse('TeamCounter__AliveT'); for (var __i_54 = 0; __i_54 < __list_54.length; __i_54++) { var tAlive = __list_54[__i_54];
         tAlive.style.backgroundImage = bgT;
@@ -561,12 +561,12 @@ local teamcount_score_js=[=[function score_runner() {
 score_runner();
 $.Schedule(0.1, score_runner);]=]
 local alerts_js=[=[var contextPanel = $.GetContextPanel();
-var joinPanelCTBG = "https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/fade.png";
-var joinPanelTBG = "https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/fade.png";
-var joinPanelBotBG = "https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/fade.png";
+var joinPanelCTBG = "https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/fade.png";
+var joinPanelTBG = "https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/fade.png";
+var joinPanelBotBG = "https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/fade.png";
 
 var __list_58 = contextPanel.FindChildrenWithClassTraverse('hud-hint'); for (var __i_58 = 0; __i_58 < __list_58.length; __i_58++) { var hudHint = __list_58[__i_58];
-    hudHint.style.backgroundImage = "url('https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/fade.png')";
+    hudHint.style.backgroundImage = "url('https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/fade.png')";
     hudHint.style.backgroundColor = '#00000000';
     hudHint.style.width = '450px';
     hudHint.style.height = '109px';
@@ -584,7 +584,7 @@ var __list_59 = contextPanel.FindChildrenWithClassTraverse('hud-hint_icon'); for
     hudHintIcon.style.horizontalAlign = 'left';
     hudHintIcon.style.verticalAlign = 'center';
     hudHintIcon.style.marginLeft = '18px';
-    if (hudHintIcon.SetImage) hudHintIcon.SetImage('https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/icons/ui/alert.png');
+    if (hudHintIcon.SetImage) hudHintIcon.SetImage('https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/icons/ui/alert.png');
 }
 var __list_60 = contextPanel.FindChildrenWithClassTraverse('hud-hint__icon'); for (var __i_60 = 0; __i_60 < __list_60.length; __i_60++) { var hint = __list_60[__i_60];
     hint.style.visibility = 'collapse';
@@ -721,7 +721,7 @@ alertText.style.marginTop = '5px';
 var alertBg = contextPanel.FindChildTraverse('AlertBg');
 alertBg.style.opacity = '1';
 alertBg.style.height = '44px';
-alertBg.style.backgroundImage = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/main/materials/panorama/images/hud/fade.png")';
+alertBg.style.backgroundImage = 'url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/fade.png")';
 alertBg.style.backgroundImgOpacity = '0.95';
 alertBg.style.backgroundSize = '100% 100%';
 alertBg.style.backgroundRepeat = 'no-repeat';
@@ -747,7 +747,7 @@ local radar_js=[=[
             label_container.style.marginTop = '-2px';
             label_container.style.width = '276px';
             label_container.style.height = '46px';
-            label_container.style.backgroundImage = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/refs/heads/main/materials/panorama/images/hud/location_corner.png")';
+            label_container.style.backgroundImage = 'url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/location_corner.png")';
             label_container.style.backgroundSize = '100% 100%';
             radar_old_round.style.borderRadius = '50% / 50%';
             radar_old_round.style.borderWidth = '2px';
@@ -777,7 +777,7 @@ local weapon_panel_js=[=[
             wpn.style.marginRight = '0px';
             wpn.style.paddingRight = '-2px';
             wpn_bg.style.backgroundColor = 'transparent';
-            wpn_bg.style.backgroundImage = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/refs/heads/main/materials/panorama/images/hud/weapon.png")';
+            wpn_bg.style.backgroundImage = 'url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/weapon.png")';
             wpn_bg.style.backgroundSize = '100% 100%';
             wpn_solid.style.backgroundColor = 'transparent';
             wpn_gradient.style.backgroundColor = 'transparent';]=]
@@ -797,7 +797,7 @@ local money_js=[=[
             m_p.style.opacity = '1.0';
             m_bg.style.marginLeft = '0px';
             m_bg.style.backgroundColor = 'transparent';
-            m_bg.style.backgroundImage = 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/refs/heads/main/materials/panorama/images/hud/ammo.png")';
+            m_bg.style.backgroundImage = 'url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/ammo.png")';
             m_bg.style.backgroundSize = '100% 100%';
             m_bg.style.width = '257px';
             m_txt_lbl.style.S2MixBlendMode = 'SRGBadditive';
@@ -864,8 +864,8 @@ win_team_bg.style.height = '100%';
 win_team_bg.style.opacity = did_twin ? '1.0' : '0.995';
 win_team_bg.style.overflow = 'noclip';
 win_team_bg.style.backgroundColor = 'transparent';
-win_team_bg.style.backgroundImage = did_twin ? 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/refs/heads/main/materials/panorama/images/hud/mvp2.png")' :
-    did_ctwin ? 'url("https://raw.githubusercontent.com/0zdac/csgo2016hud/refs/heads/main/materials/panorama/images/hud/mvp.png")' :
+win_team_bg.style.backgroundImage = did_twin ? 'url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/mvp2.png")' :
+    did_ctwin ? 'url("https://raw.githubusercontent.com/abandonedpools/scaleform/master/p_scaleform/materials/panorama/images/hud/mvp.png")' :
     'none';
 win_team_bg.style.backgroundSize = '100% 100%';
 win_funfact.style.y = '200px';
